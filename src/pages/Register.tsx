@@ -8,7 +8,6 @@ import {
   loginRegisterSchema,
   type LoginRegisterFormData,
 } from "@/schema/login-register"
-import { setToken } from "@/services/token"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { EyeIcon, EyeOffIcon } from "lucide-react"
 import { useState } from "react"
@@ -37,11 +36,10 @@ const Register = () => {
       {
         onSuccess: (response) => {
           toast.success(response.data.message)
-          setToken(response.data.accessToken)
-          navigate(ROUTES.home)
+          navigate(ROUTES.login)
         },
         onError: () => {
-          toast.error("Login Failed")
+          toast.error("Registration Failed")
         },
       }
     )
