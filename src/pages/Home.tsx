@@ -5,8 +5,6 @@ import ProfileCard from "@/components/ProfileCard"
 const Home = () => {
   const { data, isLoading } = useProfile()
 
-  console.log(data?.data)
-
   if (isLoading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
